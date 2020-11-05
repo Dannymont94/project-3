@@ -5,6 +5,9 @@ import ApolloClient from 'apollo-boost';
 import { Provider } from 'react-redux';
 import store from './utils/store';
 
+import NoMatch from './pages/NoMatch';
+import Home from './pages/Home';
+
 const client = new ApolloClient({
   request: (operation) => {
     const token = localStorage.getItem('id_token');
@@ -25,6 +28,7 @@ function App() {
           {/* always visible components go outside of Switch component */}
           <Switch>
             {/* pages that will be loaded based on url go inside of Switch component */}
+            <Route exact path='/' component={Home} />
             <Route component={NoMatch} />
           </Switch>
         </Provider>
