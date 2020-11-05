@@ -5,9 +5,12 @@ import ApolloClient from 'apollo-boost';
 import { Provider } from 'react-redux';
 import store from './utils/store';
 import NoMatch from '../src/pages/NoMatch';
+
+import Nav from './components/Nav';
+import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Nav from './components/Nav';
+import NoMatch from './pages/NoMatch';
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -30,6 +33,7 @@ function App() {
           {/* always visible components go outside of Switch component */}
           <Switch>
             {/* pages that will be loaded based on url go inside of Switch component */}
+            <Route exact path='/' component={Home} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' component={Signup} />
             <Route component={NoMatch} />
