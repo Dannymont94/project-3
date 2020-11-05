@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 
 function Login(props) {
-  const [fromSate, setFormState] = useState({ email: "", password: "" });
+  const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
       const mutationResponse = await login({
-        variables: { email: fromSate.email, password: fromSate.password },
+        variables: { email: formState.email, password: formState.password },
       });
       const token = mutationResponse.data.login.token;
       Auth.login(token);
@@ -24,7 +24,7 @@ function Login(props) {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState({
-      ...fromSate,
+      ...formState,
       [name]: value,
     });
   };
