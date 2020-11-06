@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const showSchema = new Schema({
+  tvMazeId: {
+    type: Number,
+    required: true,
+  },
   name: {
     type: String,
     required: true,
