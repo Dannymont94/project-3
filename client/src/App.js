@@ -4,13 +4,12 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import { Provider } from 'react-redux';
 import store from './utils/store';
-import NoMatch from '../src/pages/NoMatch';
 
 import Nav from './components/Nav';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-
+import NoMatch from '../src/pages/NoMatch';
 
 const client = new ApolloClient({
   request: (operation) => {
