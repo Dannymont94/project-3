@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
-
+import ShowCard from '../components/ShowCard'
 import { UPDATE_SHOWS } from '../utils/actions';
 
 function Home() {
@@ -32,21 +32,14 @@ function Home() {
                 <button type="submit">Search</button>
             </form>
             {state.shows.length > 0 ? (
-                state.shows.map((show, i) => (
-                    <div key={i}>
-                        <p>{show.show.name}</p>
-                        <p>{show.show.genres.length > 1 ? `${show.show.genres[0]}, ${show.show.genres[1]}` : show.show.genres[0]}</p>
-                        <p>{show.show.status}</p>
-                        <p>{show.show.network ? show.show.network.name : 'null'}</p>
-                        <img src={show.show.image ? show.show.image.medium : 'null'}/>
-                        <p>{show.show.rating.average}</p>
-                    </div>
+                state.shows.map((showData, i) => (
+                    <ShowCard key={i} show={showData.show}/>
                 ))
             ) : (
                 ''
             )}
         </div>
     );
-};
+}
 
 export default Home;
