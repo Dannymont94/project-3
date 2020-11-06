@@ -9,7 +9,7 @@ import Nav from './components/Nav';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import NoMatch from './pages/NoMatch';
+import NoMatch from '../src/pages/NoMatch';
 
 const client = new ApolloClient({
   request: (operation) => {
