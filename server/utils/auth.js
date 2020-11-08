@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-// require('dot-env').config();
+require('dotenv').config();
 
 const secret = process.env.JWT_SECRET;
 const expiration = '6h';
