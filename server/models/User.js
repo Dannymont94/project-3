@@ -25,9 +25,10 @@ const userSchema = new Schema(
       required: true,
       minlength: 6
     },
-    completed: [showSchema],
     interested: [showSchema],
     watching: [showSchema],
+    completed: [showSchema],
+    notInterested: [showSchema],
     // ratings: [Rating.schema],
   },
   {
