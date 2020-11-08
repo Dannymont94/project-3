@@ -38,6 +38,7 @@ function Login(props) {
             placeholder="youremail@test.com"
             name="email"
             type="email"
+            id="email"
             onChange={handleChange}
           />
         </div>
