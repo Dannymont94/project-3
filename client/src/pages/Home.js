@@ -11,13 +11,14 @@ function Home() {
             <h1>Home Page</h1>
             <Search mode={'Home'}/>
             <section className="grid-container">
-              {state.shows.length > 0 ? (
-                  state.shows.map((showData, i) => (
-                      <ShowCard key={i} show={showData.show}/>
-                  ))
-              ) : (
-                  ''
-              )}
+                {state.shows.length > 0 ? (
+                    state.shows.map((showData, i) => (
+                        <ShowCard key={i} show={showData.show}/>
+                    ))
+                ) : (
+                    ''
+                )}
+            </section>
         </div>
     );
 }

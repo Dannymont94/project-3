@@ -29,7 +29,7 @@ function Search({ mode }) {
 
   }
   return (
-    <form onSubmit={getShows}>
+    <form className="flex-row search" onSubmit={getShows}>
       <input id="searchInput" type="text" value={formState} onChange={handleChange} />
       <button type="submit">Search</button>
     </form>
