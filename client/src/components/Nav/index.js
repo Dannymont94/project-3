@@ -7,6 +7,7 @@ function Nav() {
     function showNavigation() {
     if (Auth.loggedIn()) {
         return (
+            <div>
             <ul className="flex-row">
                 <li className="mx-1">
                     <Link to="something">
@@ -19,10 +20,12 @@ function Nav() {
                     </a>
                 </li>
             </ul>
+            </div>
         );
     } else {
         return (
-            <ul className="flex-row">
+            <div className="container-tabs">
+            <ul className="flex-row nav">
                 <li className="mx-1">
                     <Link to="/signup">
                         Signup
@@ -34,6 +37,7 @@ function Nav() {
                     </Link>
                 </li>
             </ul>
+            </div>
         )
     }
     }
