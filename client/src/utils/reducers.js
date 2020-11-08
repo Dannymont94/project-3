@@ -4,6 +4,10 @@ import {
 
 const initialState = {
   shows: [],
+  interested: [],
+  watching: [],
+  completed: [],
+  notInterested: []
 };
 
 export const reducer = (state = initialState, action) => {
