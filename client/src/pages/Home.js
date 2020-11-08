@@ -25,12 +25,13 @@ function Home() {
     }
 
     return (
-        <div>
+        <div className="">
             <h1>Home Page</h1>
-            <form onSubmit={getShows}>
+            <form className="flex-row search"onSubmit={getShows}>
                 <input id="searchInput" type="text" value={formState} onChange={handleChange}/>
                 <button type="submit">Search</button>
             </form>
+            <section className="grid-container">
             {state.shows.length > 0 ? (
                 state.shows.map((showData, i) => (
                     <ShowCard key={i} show={showData.show}/>
@@ -38,6 +39,7 @@ function Home() {
             ) : (
                 ''
             )}
+            </section>
         </div>
     );
 }

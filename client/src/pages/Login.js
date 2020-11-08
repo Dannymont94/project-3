@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { LOGIN } from "../utils/mutations";
-import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 
 function Login(props) {
@@ -30,12 +29,11 @@ function Login(props) {
   };
 
   return (
-    <div className="container">
-      <Link to="/signup">Go to Signup</Link>
+    <div className="container-login">
       <h2>Login</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-forw space-betweeen">
-          <label htmlFor="email">Email Addres</label>
+          <label htmlFor="email">Email Address:</label>
           <input
             placeholder="youremail@test.com"
             name="email"
