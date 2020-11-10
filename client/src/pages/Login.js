@@ -1,10 +1,16 @@
 import React, { useState } from "react";
+import { useSelector } from 'react-redux';
 import { useMutation } from "@apollo/react-hooks";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 function Login(props) {
+  const state = useSelector(state => state);
+
+  state.searchSubmitted = false;
+
   const [formState, setFormState] = useState({ email: "", password: "" });
+  
   const [login, { error }] = useMutation(LOGIN);
 
   const handleFormSubmit = async (event) => {

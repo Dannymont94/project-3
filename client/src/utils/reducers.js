@@ -1,9 +1,11 @@
 import {
-  UPDATE_SHOWS
+  UPDATE_SEARCH_RESULTS,
+  UPDATE_TRACKED_SHOWS
 } from './actions';
 
 const initialState = {
-  shows: [],
+  searchSubmitted: false,
+  searchResults: [],
   interested: [],
   watching: [],
   completed: [],
@@ -12,11 +14,30 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_SHOWS:
+    case UPDATE_SEARCH_RESULTS:
       return {
         ...state,
-        shows: [...action.payload]
+        searchSubmitted: true,
+        searchResults: [...action.payload]
       };
+    case UPDATE_TRACKED_SHOWS:
+      if (!action.newCategory) {
+        return {
+          ...state,
+          [action.oldCategory]: state[action.oldCategory].filter(shows => shows.id !== action.payload.id)
+        };
+      } else if (!action.oldCategory) {
+        return {
+          ...state,
+          [action.newCategory]: [...state[action.newCategory], action.payload]
+        };
+      } else {
+        return {
+          ...state,
+          [action.newCategory]: [...state[action.newCategory], action.payload],
+          [action.oldCategory]: state[action.oldCategory].filter(shows => shows.id !== action.payload.id)
+        };
+      }
     default:
       return state;
   }

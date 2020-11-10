@@ -11,7 +11,7 @@ const showSchema = new Schema({
     required: true,
     trim: true,
   },
-  description: {
+  summary: {
     type: String
   },
   image: {
@@ -27,7 +27,7 @@ const showSchema = new Schema({
     type: String
   },
   rating: {
-    type: Number
+    type: String
   }
 });
 

@@ -5,7 +5,9 @@ import ShowCard from '../components/ShowCard';
 function Profile() {
     const state = useSelector(state => state);
 
-    const [profileView, setProfileView] = useState('interested');
+    state.searchSubmitted = false;
+
+    const [profileView, setProfileView] = useState('');
 
     function radioButtonHandler(event) {
         setProfileView(event.target.value);
@@ -15,25 +17,26 @@ function Profile() {
         <div>
             <form onChange={radioButtonHandler}>
                 <input type="radio" id="interested" name="view" value="interested" />
-                <label for="interested">Interested</label>
+                <label htmlFor="interested">Interested</label>
                 <br />
                 <input type="radio" id="watching" name="view" value="watching" />
-                <label for="watching">Watching</label>
+                <label htmlFor="watching">Watching</label>
                 <br />
                 <input type="radio" id="completed" name="view" value="completed" />
-                <label for="completed">Completed</label>
+                <label htmlFor="completed">Completed</label>
                 <br />
                 <input type="radio" id="not-interested" name="view" value="notInterested" />
-                <label for="not-interested">Not Interested</label>
+                <label htmlFor="not-interested">Not Interested</label>
             </form>
 
             <section className="grid-container">
-                {state[profileView].length > 0 ? (
+                {state[profileView]?.length > 0 && (
                     state[profileView].map((showData, i) => (
-                        <ShowCard key={i} show={showData}/>
+                        <ShowCard key={showData.id} show={showData}/>
                     ))
-                ) : (
-                    'No shows found'
+                )}
+                {state[profileView]?.length === 0 && (
+                    'No shows saved'
                 )}
             </section>
         </div>
