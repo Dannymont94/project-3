@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { UPDATE_SHOWS } from '../../utils/actions';
+import { UPDATE_SEARCH_RESULTS } from '../../utils/actions';
 
 function Search({ mode }) {
   const [formState, setFormState] = useState('');
@@ -19,15 +19,15 @@ function Search({ mode }) {
       case 'Home':
         const response = await axios.get(`http://api.tvmaze.com/search/shows?q=${formState}`);
         dispatch({
-          type: UPDATE_SHOWS,
+          type: UPDATE_SEARCH_RESULTS,
           payload: response.data
         });
         break;
       default:
         break;
     }
-
   }
+
   return (
     <form className="flex-row search" onSubmit={getShows}>
       <input id="searchInput" type="text" value={formState} onChange={handleChange} />
