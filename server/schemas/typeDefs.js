@@ -4,12 +4,12 @@ const typeDefs = gql`
   type Show {
     tvMazeId: Int
     name: String
-    description: String
+    summary: String
     image: String
     genres: [String]
     network: String
     status: String
-    rating: Int
+    rating: String
   }
 
   type User {
