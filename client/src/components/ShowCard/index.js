@@ -38,16 +38,20 @@ function ShowCard({ show }) {
   const name = show.name;
   const image = show.image ? show.image.medium : 'https://via.placeholder.com/210x295.png?text=TV+Tracker';
   ;
-  const genres = show.genres;
+  const genres = show.genres || [];
   const network = show.network ? show.network.name :
                   show.webChannel? show.webChannel.name :
                   "No Network Data";
   const status = show.status;
   const rating = show.rating?.average ? show.rating.average.toString() : "No Rating Data";
-  const summary = show.summary
+  const summary = show.summary ? show.summary
                     .replace(/<[^>]*>/g, ' ')
                     .replace(/\s{2,}/g, ' ')
-                    .trim();
+                    .trim()
+                    :
+                    'No summary data';
+
+  console.log(summary);
 
   return (
     <div className="card">
