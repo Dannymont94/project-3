@@ -1,16 +1,29 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { UPDATE_TRACKED_SHOWS } from '../../utils/actions';
 import Auth from '../../utils/auth';
 
 function ShowCard({ show }) {
+  const state = useSelector(state => state);
   const dispatch = useDispatch();
 
   const [showSavedIn, setShowSavedIn] = useState('');
 
+  if (state.interested.find(trackedShow => trackedShow.id === show.id) && showSavedIn !== 'interested') {
+    setShowSavedIn('interested');
+  } else if (state.watching.find(trackedShow => trackedShow.id === show.id) && showSavedIn !== 'watching') {
+    setShowSavedIn('watching');
+  } else if (state.completed.find(trackedShow => trackedShow.id === show.id) && showSavedIn !== 'completed') {
+    setShowSavedIn('completed');
+  } else if (state.notInterested.find(trackedShow => trackedShow.id === show.id) && showSavedIn !== 'notInterested') {
+    setShowSavedIn('notInterested');
+  }
+
   function handleSelect(event) {
     const newCategory = event.target.value;
     const oldCategory = event.target.dataset.value;
+
+    if (newCategory === oldCategory) return;
 
     dispatch({
       type: UPDATE_TRACKED_SHOWS,
@@ -22,24 +35,38 @@ function ShowCard({ show }) {
     setShowSavedIn(newCategory);
   }
 
+  const name = show.name;
+  const image = show.image ? show.image.medium : 'https://via.placeholder.com/210x295.png?text=TV+Tracker';
+  ;
+  const genres = show.genres;
+  const network = show.network ? show.network.name :
+                  show.webChannel? show.webChannel.name :
+                  "No Network Data";
+  const status = show.status;
+  const rating = show.rating?.average ? show.rating.average.toString() : "No Rating Data";
+  const summary = show.summary
+                    .replace(/<[^>]*>/g, ' ')
+                    .replace(/\s{2,}/g, ' ')
+                    .trim();
+
   return (
     <div className="card">
       <img
         className="card-img"
-        src={show.image ? show.image.medium : "/images/placeholder.jpg"}
-        alt={`${show.name} promotional art`}
+        src={image}
+        alt={`${name} promotional art`}
       />
       <div className="card-body">
         <div>
-          <h3>{show.name}</h3>
+          <h3>{name}</h3>
         </div>
         <p>
-          {show.genres?.length === 0 ? "No Genre Data" : show.genres.join("/")}
+          {genres?.length > 0 ? genres.join("/") : "No Genre Data"}
         </p>
         <p>
-          {show.network ? show.network.name : "No Network Data"} | {show.status}
+          {network} | {status}
         </p>
-        <p>{show.rating.average ? show.rating.average : "No Rating Data"}</p>
+        <p>{rating}</p>
 
         {Auth.loggedIn() ? (
           <select data-value={showSavedIn} value={showSavedIn} onChange={handleSelect}>

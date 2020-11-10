@@ -13,7 +13,7 @@ function Home() {
             <section className="grid-container">
                 {state.searchResults.length > 0 && (
                     state.searchResults.map((showData, i) => (
-                        <ShowCard key={i} show={showData.show} />
+                        <ShowCard key={showData.show.id} show={showData.show} />
                     ))
                 )}
                 {state.searchSubmitted && state.searchResults.length === 0 && (

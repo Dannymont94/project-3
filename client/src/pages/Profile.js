@@ -7,7 +7,7 @@ function Profile() {
 
     state.searchSubmitted = false;
 
-    const [profileView, setProfileView] = useState('interested');
+    const [profileView, setProfileView] = useState('');
 
     function radioButtonHandler(event) {
         setProfileView(event.target.value);
@@ -30,12 +30,12 @@ function Profile() {
             </form>
 
             <section className="grid-container">
-                {state[profileView].length > 0 && (
+                {state[profileView]?.length > 0 && (
                     state[profileView].map((showData, i) => (
-                        <ShowCard key={i} show={showData}/>
+                        <ShowCard key={showData.id} show={showData}/>
                     ))
                 )}
-                {state[profileView].length === 0 && (
+                {state[profileView]?.length === 0 && (
                     'No shows saved'
                 )}
             </section>

@@ -21,10 +21,22 @@ export const reducer = (state = initialState, action) => {
         searchResults: [...action.payload]
       };
     case UPDATE_TRACKED_SHOWS:
-      return {
-        ...state,
-        [action.newCategory]: [ ...state[action.newCategory], action.payload],
-        [action.oldCategory]: [action.oldCategory].filter(shows => shows.id !== action.payload.id)
+      if (!action.newCategory) {
+        return {
+          ...state,
+          [action.oldCategory]: state[action.oldCategory].filter(shows => shows.id !== action.payload.id)
+        };
+      } else if (!action.oldCategory) {
+        return {
+          ...state,
+          [action.newCategory]: [...state[action.newCategory], action.payload]
+        };
+      } else {
+        return {
+          ...state,
+          [action.newCategory]: [...state[action.newCategory], action.payload],
+          [action.oldCategory]: state[action.oldCategory].filter(shows => shows.id !== action.payload.id)
+        };
       }
     default:
       return state;
