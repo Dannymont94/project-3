@@ -5,7 +5,9 @@ import ShowCard from '../components/ShowCard';
 function Profile() {
     const state = useSelector(state => state);
 
-    state.searchSubmitted = false;
+    if (state.searchSubmitted) {
+        state.searchSubmitted = false;
+    }
 
     const [profileView, setProfileView] = useState('');
 
@@ -32,7 +34,7 @@ function Profile() {
             <section className="grid-container">
                 {state[profileView]?.length > 0 && (
                     state[profileView].map((showData, i) => (
-                        <ShowCard key={showData.id} show={showData}/>
+                        <ShowCard key={showData.id} show={showData} />
                     ))
                 )}
                 {state[profileView]?.length === 0 && (

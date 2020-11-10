@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { useSelector } from 'react-redux';
-
 import { useMutation } from "@apollo/react-hooks";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
 
-function Signup(props) {
+function Signup() {
   const state = useSelector(state => state);
 
-  state.searchSubmitted = false;
+  if (state.searchSubmitted) {
+    state.searchSubmitted = false;
+  }
 
-  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [formState, setFormState] = useState({ username: "", email: "", password: "" });
 
   const [addUser] = useMutation(ADD_USER);
 
@@ -18,10 +19,9 @@ function Signup(props) {
     event.preventDefault();
     const mutationResponse = await addUser({
       variables: {
+        username: formState.username,
         email: formState.email,
-        password: formState.password,
-        firstName: formState.firstName,
-        lastName: formState.lastName,
+        password: formState.password
       },
     });
     const token = mutationResponse.data.addUser.token;
@@ -47,22 +47,12 @@ function Signup(props) {
       <div className="column-2">
         <form onSubmit={handleFormSubmit}>
           <div className="flex-row space-between my-2">
-            <label htmlFor="firstName">First Name:</label>
+            <label htmlFor="username">Username:</label>
             <input
-              placeholder="first"
-              name="firstName"
-              type="firstName"
-              id="firstName"
-              onChange={handleChange}
-            />
-          </div>
-          <div className="flex-row space-between my-2">
-            <label htmlFor="lastName">Last Name:</label>
-            <input
-              placeholder="last"
-              name="lastName"
-              type="lastName"
-              id="lastName"
+              placeholder="username"
+              name="username"
+              type="username"
+              id="username"
               onChange={handleChange}
             />
           </div>
