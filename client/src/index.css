@@ -77,29 +77,58 @@ a{
 
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(4, 250px);
   justify-content: space-between;
-  grid-column-gap: 50px;
+  grid-column-gap: 40px;
   grid-row-gap: 20px;
+  overflow-wrap: normal;
+  
 }
 
 .card {
-  background-color: var(--light);
-  width: 18rem;
-  border: 1px;
-
+  background-color: var(--secondary);
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
 }
 
+
 .card-img {
-  border-radius: 15px;
-  margin-right: 40px;
   display: block;
   max-width: 100%;
   width: auto;
   height: auto;
-  justify-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 5px black;
+  
+}
+
+.card-body {
+  background-color: var(--light);
+  border: solid 2px black;
 }
 
 .container-login {
-  justify-items: center;
+  flex-direction: column;
+  
+}
+
+.container-signup {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.column-1 {
+  display: flex;
+  
+}
+.column-2 {
+ border: 1px solid black;
+ display: block;
+ padding: 7px 15px;
+ font-size: 16px;
+ width: 100%;
+ margin-bottom: 15px;
+ border-radius: 10px;
 }
