@@ -1,15 +1,21 @@
 import React, { useState } from "react";
+import { useSelector } from 'react-redux';
 
 import { useMutation } from "@apollo/react-hooks";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
 
 function Signup(props) {
+  const state = useSelector(state => state);
+
+  state.searchSubmitted = false;
+
   const [formState, setFormState] = useState({ email: "", password: "" });
+
   const [addUser] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
-    event.preventDefalut();
+    event.preventDefault();
     const mutationResponse = await addUser({
       variables: {
         email: formState.email,
@@ -29,10 +35,9 @@ function Signup(props) {
       [name]: value,
     });
   };
+  
   return (
     <div className="container my-1">
-      
-
       <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">

@@ -9,14 +9,15 @@ function Home() {
     return (
         <div>
             <h1>Home Page</h1>
-            <Search mode={'Home'}/>
+            <Search mode={'Home'} />
             <section className="grid-container">
-                {state.shows.length > 0 ? (
-                    state.shows.map((showData, i) => (
-                        <ShowCard key={i} show={showData.show}/>
+                {state.searchResults.length > 0 && (
+                    state.searchResults.map((showData, i) => (
+                        <ShowCard key={i} show={showData.show} />
                     ))
-                ) : (
-                    ''
+                )}
+                {state.searchSubmitted && state.searchResults.length === 0 && (
+                    <h3>No shows found</h3>
                 )}
             </section>
         </div>
