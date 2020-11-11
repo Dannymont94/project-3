@@ -1,6 +1,7 @@
 import {
   UPDATE_SEARCH_RESULTS,
-  UPDATE_TRACKED_SHOWS
+  UPDATE_TRACKED_SHOWS,
+  STORE_USER_DATA
 } from './actions';
 
 const initialState = {
@@ -37,6 +38,14 @@ export const reducer = (state = initialState, action) => {
           [action.newCategory]: [...state[action.newCategory], action.payload],
           [action.oldCategory]: state[action.oldCategory].filter(shows => shows.id !== action.payload.id)
         };
+      }
+    case STORE_USER_DATA:
+      return {
+        ...state,
+        interested: [...action.payload.interested],
+        watching: [...action.payload.watching],
+        completed: [...action.payload.completed],
+        notInterested: [...action.payload.notInterested],
       }
     default:
       return state;
