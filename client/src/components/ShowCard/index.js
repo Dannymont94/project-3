@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useMutation } from "@apollo/react-hooks";
+import { UPDATE_SHOWS } from "../../utils/mutations";
 import { UPDATE_TRACKED_SHOWS } from '../../utils/actions';
 import Auth from '../../utils/auth';
 
 function ShowCard({ show }) {
   const state = useSelector(state => state);
   const dispatch = useDispatch();
+
+  const [updateShows] = useMutation(UPDATE_SHOWS);
 
   const [showSavedIn, setShowSavedIn] = useState('');
 
@@ -19,10 +23,11 @@ function ShowCard({ show }) {
     setShowSavedIn('notInterested');
   }
 
-  function handleSelect(event) {
+  async function handleSelect(event) {
     const newCategory = event.target.value;
     const oldCategory = event.target.dataset.value;
 
+    if (!newCategory && !oldCategory) return;
     if (newCategory === oldCategory) return;
 
     dispatch({
@@ -33,25 +38,40 @@ function ShowCard({ show }) {
     });
     
     setShowSavedIn(newCategory);
+
+    await updateShows({
+      variables: {
+        newCategory,
+        oldCategory,
+        show: {
+          tvMazeId,
+          name,
+          image,
+          genres,
+          network,
+          status,
+          rating,
+          summary
+        }
+      }
+    });
   }
 
+  const tvMazeId = show.id;
   const name = show.name;
   const image = show.image ? show.image.medium : 'https://via.placeholder.com/210x295.png?text=TV+Tracker';
-  ;
   const genres = show.genres || [];
   const network = show.network ? show.network.name :
                   show.webChannel? show.webChannel.name :
                   "No Network Data";
   const status = show.status;
-  const rating = show.rating?.average ? show.rating.average.toString() : "No Rating Data";
+  const rating = show.rating?.average ? `${show.rating.average.toString()}/10` : "No Rating Data";
   const summary = show.summary ? show.summary
                     .replace(/<[^>]*>/g, ' ')
                     .replace(/\s{2,}/g, ' ')
                     .trim()
                     :
                     'No summary data';
-
-  console.log(summary);
 
   return (
     <div className="card">
