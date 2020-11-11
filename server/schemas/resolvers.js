@@ -36,6 +36,9 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    updateShows: async (parent, args, context) => {
+      console.log(args);
     }
   }
 };
