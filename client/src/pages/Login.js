@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import { useMutation } from "@apollo/react-hooks";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 function Login() {
-  const state = useSelector(state => state);
+  const state = useSelector((state) => state);
 
   if (state.searchSubmitted) {
     state.searchSubmitted = false;
@@ -38,37 +38,39 @@ function Login() {
 
   return (
     <div className="container-login">
-      <h2>Login</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-forw space-betweeen">
-          <label htmlFor="email">Email Address:</label>
-          <input
-            placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            placeholder="******"
-            name="password"
-            type="password"
-            id="password"
-            onChange={handleChange}
-          />
-        </div>
-        {error ? (
-          <div>
-            <p className="error-text"> What you have provided is incorrect</p>
+      <div className="login-row">
+        <h2>Login</h2>
+        <form onSubmit={handleFormSubmit}>
+          <div className="flex-row space-betweeen">
+            <label htmlFor="email">Email Address:</label>
+            <input
+              placeholder="youremail@test.com"
+              name="email"
+              type="email"
+              id="email"
+              onChange={handleChange}
+            />
           </div>
-        ) : null}
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+          <div>
+            <label htmlFor="password">Password:</label>
+            <input
+              placeholder="******"
+              name="password"
+              type="password"
+              id="password"
+              onChange={handleChange}
+            />
+          </div>
+          {error ? (
+            <div>
+              <p className="error-text"> What you have provided is incorrect</p>
+            </div>
+          ) : null}
+          <div className="flex-row flex-end">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

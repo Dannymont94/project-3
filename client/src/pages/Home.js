@@ -7,7 +7,7 @@ function Home() {
     const state = useSelector(state => state);
 
     return (
-        <div>
+        <div className="home">
             <h1>Home Page</h1>
             <Search mode={'Home'} />
             <section className="grid-container">
