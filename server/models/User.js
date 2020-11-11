@@ -63,6 +63,10 @@ userSchema.virtual('watchingCount').get(function () {
   return this.watching.length;
 });
 
+userSchema.virtual('notInterestedCount').get(function () {
+  return this.notInterested.length;
+});
+
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;

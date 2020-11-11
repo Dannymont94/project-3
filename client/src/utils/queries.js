@@ -37,6 +37,17 @@ export const QUERY_USER = gql`
         status
         rating
       }
+      notInterestedCount
+      notInterested {
+        tvMazeId
+        name
+        summary
+        image
+        genres
+        network
+        status
+        rating
+      }
     }
   }
 `;
