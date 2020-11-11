@@ -17,7 +17,7 @@ function Search({ mode }) {
 
     switch (mode) {
       case 'Home':
-        const response = await axios.get(`http://api.tvmaze.com/search/shows?q=${formState}`);
+        const response = await axios.get(`https://api.tvmaze.com/search/shows?q=${formState}`);
         dispatch({
           type: UPDATE_SEARCH_RESULTS,
           payload: response.data
