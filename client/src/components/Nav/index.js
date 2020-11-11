@@ -6,7 +6,7 @@ function Nav() {
     function showNavigation() {
         if (Auth.loggedIn()) {
             return (
-                <div>
+                <div className="container-tabs">
                     <ul className="flex-row">
                         <li className="mx-1">
                             <Link to="/profile">
