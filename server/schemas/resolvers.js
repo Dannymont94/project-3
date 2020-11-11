@@ -37,8 +37,43 @@ const resolvers = {
 
       return { token, user };
     },
-    updateShows: async (parent, args, context) => {
-      console.log(args);
+    updateShows: async (parent, { oldCategory, newCategory, show }, context) => {
+      if (context.user) {
+        if (!oldCategory && !newCategory) {
+          return;
+        } else if (!oldCategory) {
+          // just adding to newCategory
+          const updatedUser = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $addToSet: { [newCategory]: show } },
+            { new: true, runValidators: true }
+          );
+
+          return updatedUser;
+        } else if (!newCategory) {
+          // just removing from oldCategory
+          const updatedUser = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $pull: { [oldCategory]: { tvMazeId: show.tvMazeId } } },
+            { new: true, runValidators: true }
+          );
+
+          return updatedUser;
+        } else {
+          // remove from oldCategory and then add to newCategory
+          const updatedUser = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { 
+              $pull: { [oldCategory]: { tvMazeId: show.tvMazeId } },
+              $addToSet: { [newCategory]: show },
+            },
+            { new: true, runValidators: true }
+          );
+
+          return updatedUser;
+        }
+      }
+      throw new AuthenticationError('Not logged in');
     }
   }
 };

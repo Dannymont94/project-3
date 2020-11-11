@@ -1,10 +1,27 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useQuery } from "@apollo/react-hooks";
+import { QUERY_USER } from "../utils/queries";
+import { STORE_USER_DATA } from "../utils/actions";
 import Search from '../components/Search';
 import ShowCard from '../components/ShowCard';
 
 function Home() {
     const state = useSelector(state => state);
+    const dispatch = useDispatch();
+
+    // const { data } = useQuery(QUERY_USER);
+    // let user;
+
+    // if (data) {
+    //     user = data.user
+    //     if (state.interested !== user.interested && state.watching !== user.watching && state.completed !== user.completed && state.notInterested !== user.notInterested) {
+    //         dispatch({
+    //             type: STORE_USER_DATA,
+    //             payload: user
+    //         });
+    //     }
+    // }
 
     return (
         <div className="home">

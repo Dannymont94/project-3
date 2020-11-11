@@ -22,6 +22,8 @@ const typeDefs = gql`
     watching: [Show]
     completedCount: Int
     completed: [Show]
+    notInterestedCount: Int
+    notInterested: [Show]
   }
 
   type Auth {
