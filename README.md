@@ -22,13 +22,15 @@ Vist the deployed app [here](https://stark-brushlands-99590.herokuapp.com/)
 
 ## Images
 ### Home
-![Home](https://github.com/Dannymont94/project-3/blob/style/client/public/images/Tv-tracker-home.png)
+![Home](https://user-images.githubusercontent.com/62314714/99005620-2165f800-250f-11eb-8774-03618633018d.png)
+
 
 ### Search
-![Search](https://github.com/Dannymont94/project-3/blob/style/client/public/images/Tv-tracker-search.png)
+![Search](https://user-images.githubusercontent.com/62314714/99005708-43f81100-250f-11eb-8dec-430b3d4bc97b.png)
+
 
 ### Profile
-![Profile](https://github.com/Dannymont94/project-3/blob/style/client/public/images/Tv-tracker-profile.png)
+![Profile](https://user-images.githubusercontent.com/62314714/99005681-35115e80-250f-11eb-9bb0-f572e15eee81.png)
 
 ## Future Development
 - Make cards more interactive to include a description of the show
