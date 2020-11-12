@@ -2,9 +2,7 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-family: 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Oswald';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -37,6 +35,7 @@ header {
 
 .title a {
   font-size: 48px;
+  font-family: 'Fjalla One';
   font-weight: normal;
   padding: 0;
   margin: 15px 0 15px;
@@ -166,6 +165,8 @@ header a:hover {
 
 .card-select {
   font-size: 16px;
+  text-align: center;
+  text-align-last:center;
 }
 
 .radio-form {
