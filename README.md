@@ -21,13 +21,13 @@ Vist the deployed app [here](https://stark-brushlands-99590.herokuapp.com/)
 
 
 ## Images
-Home
+### Home
 ![Home](https://github.com/Dannymont94/project-3/blob/style/client/public/images/Tv-tracker-home.png)
 
-Search
+### Search
 ![Search](https://github.com/Dannymont94/project-3/blob/style/client/public/images/Tv-tracker-search.png)
 
-Profile
+### Profile
 ![Profile](https://github.com/Dannymont94/project-3/blob/style/client/public/images/Tv-tracker-profile.png)
 
 ## Future Development
