@@ -101,6 +101,9 @@ function ShowCard({ show }) {
             <option value="watching">Watching</option>
             <option value="completed">Completed</option>
             <option value="notInterested">Not Interested</option>
+            {showSavedIn && (
+              <option value="">Untrack</option>
+            )}
           </select>
         ) : (
           <p>Login to track!</p>
