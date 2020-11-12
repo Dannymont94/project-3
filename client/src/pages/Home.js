@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_USER } from "../utils/queries";
@@ -10,18 +10,20 @@ function Home() {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
 
-    // const { data } = useQuery(QUERY_USER);
-    // let user;
+    const { data } = useQuery(QUERY_USER);
+    let user = useRef(null);
 
-    // if (data) {
-    //     user = data.user
-    //     if (state.interested !== user.interested && state.watching !== user.watching && state.completed !== user.completed && state.notInterested !== user.notInterested) {
-    //         dispatch({
-    //             type: STORE_USER_DATA,
-    //             payload: user
-    //         });
-    //     }
-    // }
+    useEffect(() => {
+        if (data && state && data.user && !state.dataQueried) {
+            user.current = data.user;
+
+            dispatch({
+                type: STORE_USER_DATA,
+                payload: user.current
+            });
+
+        }
+    }, [data]);
 
     return (
         <div className="home">
