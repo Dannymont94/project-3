@@ -12,10 +12,11 @@
 :root {
   --primary: #002C3F;
   --secondary:#FAF0CA;
-  --tertiary:#F95738 ;
+  --tertiary:#F95738;
   --fourth: #EE964B;
   --light: #fafafa;
   --background: #147ba7;
+  --gray: #D3D3D3;
 }
 
 html,
@@ -110,7 +111,7 @@ header a:hover {
 }
 
 .error-text {
-  margin-top: 25px;
+  margin: 25px 10px;
   color: var(--fourth);
   text-align: center;
 }
@@ -149,6 +150,7 @@ header a:hover {
 }
 
 .card-body {
+  font-size: 20px;
   flex-grow: 2;
   margin-left: 5px;
   display: flex;
@@ -250,4 +252,74 @@ header a:hover {
   width: 80%;
   margin: 0 auto 40px;
   text-align: center;
+}
+
+@media screen and (max-width: 750px) {
+  .radio-form-container {
+    padding: 15px 0;
+  }
+
+  .radio-form div,
+  .radio-form div label {
+    display: block;
+    padding-bottom: 0;
+  }
+  
+  .radio-form div {
+    border-top: 1px solid var(--fourth);
+    border-bottom: 1px solid var(--fourth);
+  }
+
+  .radio-form input:checked ~ label {
+    color: var(--background);
+    border-bottom: none;
+    background-color: var(--gray);
+  }
+
+  .separator-span {
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 525px) {
+  header {
+    flex-flow: column nowrap;
+    justify-content: center;
+  }
+
+  header nav ul li {
+    padding: 0 20px 0 20px;
+  }
+  
+  header nav ul a {
+    padding: 0;
+  }
+  
+  .search {
+    width: 100%;
+  }
+
+  .search input {
+    padding-left: 0;
+  }
+
+  .showcard-container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  .card {
+    flex-flow: column nowrap;
+  }
+
+  .card-body div p {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .search input {
+    font-size: 20px;
+    text-align: center;
+  }
 }
