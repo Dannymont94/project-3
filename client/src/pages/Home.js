@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_USER } from "../utils/queries";
@@ -11,19 +11,13 @@ function Home() {
     const dispatch = useDispatch();
 
     const { data } = useQuery(QUERY_USER);
-    let user = useRef(null);
 
-    useEffect(() => {
-        if (data && state && data.user && !state.dataQueried) {
-            user.current = data.user;
-
-            dispatch({
-                type: STORE_USER_DATA,
-                payload: user.current
-            });
-
-        }
-    }, [data]);
+    if (data && state && data.user && !state.dataQueried) {
+        dispatch({
+            type: STORE_USER_DATA,
+            payload: data.user
+        });
+    }
 
     return (
         <div className="home">
