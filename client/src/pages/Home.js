@@ -22,7 +22,7 @@ function Home() {
     return (
         <div className="home">
             <Search mode={'Home'} />
-            <section className="grid-container">
+            <section className="showcard-container">
                 {state.searchResults.length > 0 && (
                     state.searchResults.map((showData, i) => (
                         <ShowCard key={showData.show.id} show={showData.show} />

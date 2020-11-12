@@ -31,7 +31,7 @@ function Profile() {
                 <label htmlFor="not-interested">Not Interested</label>
             </form>
 
-            <section className="grid-container">
+            <section className="showcard-container">
                 {state[profileView]?.length > 0 && (
                     state[profileView].map((showData, i) => (
                         <ShowCard key={showData.id} show={showData} />

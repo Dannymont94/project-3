@@ -59,6 +59,10 @@ header a {
   align-items: flex-end;
 }
 
+header a:hover {
+  color: var(--background);
+}
+
 .search {
   display: flex;
   flex-flow: row nowrap;
@@ -95,17 +99,13 @@ header a {
   background: var(--background);
 }
 
-form button:hover {
-  background-color: var(--fourth);
-}
-
-.grid-container {
+.showcard-container {
+  margin: 0 auto;
+  width: 90%;
   display: grid;
-  grid-template-columns: repeat(4, 250px);
-  justify-content: space-between;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-column-gap: 40px;
   grid-row-gap: 20px;
-  overflow-wrap: normal;
 }
 
 .card {
