@@ -25,7 +25,8 @@ body {
 }
 
 header {
-  padding: 20px 50px;
+  width: 90%;
+  margin: 0 auto;
   background-color: var(--primary);
   display: flex;
   justify-content: space-between;
@@ -37,6 +38,7 @@ header {
   font-size: 48px;
   font-weight: normal;
   padding: 0;
+  margin: 15px 0 15px;
 }
 
 header nav ul {
@@ -50,7 +52,7 @@ header nav ul {
 header a {
   color: var(--fourth);
   text-decoration: none;
-  padding: 5px 15px;
+  padding: 5px 0 5px 30px;
   font-size: 30px;
   font-weight: normal;
   position: relative;
@@ -120,12 +122,14 @@ header a:hover {
   margin: 0 auto;
   width: 90%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
   grid-column-gap: 40px;
   grid-row-gap: 40px;
 }
 
 .card {
+  display: flex;
+  flex-flow: row nowrap;
   padding: 15px;
   border-radius: 10px;
   background-color: var(--light);
@@ -144,8 +148,17 @@ header a:hover {
 }
 
 .card-body {
+  flex-grow: 2;
+  margin-left: 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column;
   background-color: var(--light);
   border-radius: 10px;
+}
+
+.card-select {
+  font-size: 16px;
 }
 
 .container-login {

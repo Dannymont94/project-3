@@ -67,7 +67,7 @@ function ShowCard({ show }) {
                   show.webChannel? show.webChannel.name :
                   "No Network Data";
   const status = show.status;
-  const rating = show.rating?.average ? `${show.rating.average.toString()}/10` : "No Rating Data";
+  const rating = show.rating?.average ? `${show.rating.average.toString()}/10 ⭐` : "No Rating Data";
   const summary = show.summary ? show.summary
                     .replace(/<[^>]*>/g, ' ')
                     .replace(/\s{2,}/g, ' ')
@@ -85,17 +85,18 @@ function ShowCard({ show }) {
       <div className="card-body">
         <div>
           <h3>{name}</h3>
+          <p>{genres?.length > 0 ? genres.join(" / ") : "No Genre Data"}</p>
         </div>
-        <p>
-          {genres?.length > 0 ? genres.join("/") : "No Genre Data"}
-        </p>
-        <p>
-          {network} | {status}
-        </p>
-        <p>{rating}</p>
+        <div>
+          <p>{network}</p>
+          <br />
+          <p>{status}</p>
+          <br />
+          <p>{rating}</p>
+        </div>
 
         {Auth.loggedIn() ? (
-          <select data-value={showSavedIn} value={showSavedIn} onChange={handleSelect}>
+          <select className="card-select" data-value={showSavedIn} value={showSavedIn} onChange={handleSelect}>
             <option disabled value="">Track This Show</option>
             <option value="interested">Interested</option>
             <option value="watching">Watching</option>
