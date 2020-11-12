@@ -1,9 +1,22 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useQuery } from "@apollo/react-hooks";
+import { QUERY_USER } from "../utils/queries";
+import { STORE_USER_DATA } from "../utils/actions";
 import ShowCard from '../components/ShowCard';
 
 function Profile() {
     const state = useSelector(state => state);
+    const dispatch = useDispatch();
+
+    const { data } = useQuery(QUERY_USER);
+
+    if (data && state && data.user && !state.dataQueried) {
+        dispatch({
+            type: STORE_USER_DATA,
+            payload: data.user
+        });
+    }
 
     if (state.searchSubmitted) {
         state.searchSubmitted = false;
@@ -23,17 +36,17 @@ function Profile() {
                         <input type="radio" id="interested" name="view" value="interested" />
                         <label htmlFor="interested"> Interested </label>
                     </div>
-                    |
+                    <span className="separator-span">|</span>
                     <div>
                         <input type="radio" id="watching" name="view" value="watching" />
                         <label htmlFor="watching"> Watching </label>
                     </div>
-                    |
+                    <span className="separator-span">|</span>
                     <div>
                         <input type="radio" id="completed" name="view" value="completed" />
                         <label htmlFor="completed"> Completed </label>
                     </div>
-                    |
+                    <span className="separator-span">|</span>
                     <div>
                         <input type="radio" id="not-interested" name="view" value="notInterested" />
                         <label htmlFor="not-interested"> Not Interested </label>
