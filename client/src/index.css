@@ -21,6 +21,7 @@
 html,
 body {
   min-height: 100%;
+  background-color: var(--primary);
 }
 
 header {
@@ -63,12 +64,17 @@ header a:hover {
   color: var(--background);
 }
 
+.search-container {
+  background-color: var(--light);
+  padding: 35px 0;
+}
+
 .search {
   display: flex;
   flex-flow: row nowrap;
   border-radius: 5px;
   width: 90%;
-  margin: 35px auto;
+  margin: 0 auto;
 }
 
 .search input {
@@ -97,6 +103,7 @@ header a:hover {
 
 .search button:hover {
   background: var(--background);
+  cursor: pointer;
 }
 
 .error-text {
@@ -106,9 +113,7 @@ header a:hover {
 }
 
 .content-background {
-  background-color: var(--primary);
-  padding-top: 25px;
-  min-height: 100vh;
+  padding: 25px 0 25px;
 }
 
 .showcard-container {
@@ -117,7 +122,7 @@ header a:hover {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-column-gap: 40px;
-  grid-row-gap: 20px;
+  grid-row-gap: 40px;
 }
 
 .card {

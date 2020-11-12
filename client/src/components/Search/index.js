@@ -19,7 +19,7 @@ function Search({ mode }) {
       case 'Home':
         if (formState) {
           const response = await axios.get(`https://api.tvmaze.com/search/shows?q=${formState}`);
-          
+
           dispatch({
             type: UPDATE_SEARCH_RESULTS,
             payload: response.data
@@ -32,10 +32,12 @@ function Search({ mode }) {
   }
 
   return (
+    <div className="search-container">
       <form className="search" onSubmit={getShows}>
         <input type="text" value={formState} placeholder="Search for TV shows by name" onChange={handleChange} />
         <button type="submit"><img src="/images/search.png" alt="magnifying glass" height="45px" width="45px" /></button>
       </form>
+    </div>
   );
 }
 
