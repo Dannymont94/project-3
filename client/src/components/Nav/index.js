@@ -1,15 +1,18 @@
 import React from "react";
+import { useSelector } from 'react-redux';
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 
 function Nav() {
+    const username = useSelector(state => state.username);
+
     function showNavigation() {
         if (Auth.loggedIn()) {
             return (
                 <ul>
                     <li>
                         <Link to="/profile">
-                            Profile
+                            {username}
                         </Link>
                     </li>
                     <li>

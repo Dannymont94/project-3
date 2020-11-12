@@ -7,6 +7,7 @@ import {
 const initialState = {
   searchSubmitted: false,
   dataQueried: false,
+  username: '',
   searchResults: [],
   interested: [],
   watching: [],
@@ -44,6 +45,7 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         dataQueried: true,
+        username: action.payload.username,
         interested: [...action.payload.interested],
         watching: [...action.payload.watching],
         completed: [...action.payload.completed],
