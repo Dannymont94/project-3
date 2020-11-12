@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_USER } from "../utils/queries";
@@ -11,35 +11,30 @@ function Home() {
     const dispatch = useDispatch();
 
     const { data } = useQuery(QUERY_USER);
-    let user = useRef(null);
 
-    useEffect(() => {
-        if (data && state && data.user && !state.dataQueried) {
-            user.current = data.user;
-
-            dispatch({
-                type: STORE_USER_DATA,
-                payload: user.current
-            });
-
-        }
-    }, [data]);
+    if (data && state && data.user && !state.dataQueried) {
+        dispatch({
+            type: STORE_USER_DATA,
+            payload: data.user
+        });
+    }
 
     return (
-        <div className="home">
-            <h1>Home Page</h1>
+        <>
             <Search mode={'Home'} />
-            <section className="grid-container">
+            <div className="content-background">
                 {state.searchResults.length > 0 && (
-                    state.searchResults.map((showData, i) => (
-                        <ShowCard key={showData.show.id} show={showData.show} />
-                    ))
-                )}
+                    <section className="showcard-container">
+                        {state.searchResults.map((showData, i) => (
+                            <ShowCard key={showData.show.id} show={showData.show} />
+                        ))}
+                    </section>
+                    )}
                 {state.searchSubmitted && state.searchResults.length === 0 && (
-                    <h3>No shows found</h3>
+                    <h3 className="error-text">No shows found</h3>
                 )}
-            </section>
-        </div>
+            </div>
+        </>
     );
 }
 

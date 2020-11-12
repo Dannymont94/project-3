@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { useMutation } from "@apollo/react-hooks";
 import { UPDATE_SHOWS } from "../../utils/mutations";
@@ -59,13 +60,15 @@ function ShowCard({ show }) {
 
   const id = show.id;
   const name = show.name;
-  const image = show.image ? show.image.medium : 'https://via.placeholder.com/210x295.png?text=TV+Tracker';
+  const image = show.image?.medium ? show.image.medium :
+                show.image ? show.image        :
+                'https://via.placeholder.com/210x295.png?text=TV+Tracker';
   const genres = show.genres || [];
   const network = show.network ? show.network.name :
                   show.webChannel? show.webChannel.name :
                   "No Network Data";
   const status = show.status;
-  const rating = show.rating?.average ? `${show.rating.average.toString()}/10` : "No Rating Data";
+  const rating = show.rating?.average ? `${show.rating.average.toString()}/10 ⭐` : "No Rating Data";
   const summary = show.summary ? show.summary
                     .replace(/<[^>]*>/g, ' ')
                     .replace(/\s{2,}/g, ' ')
@@ -83,25 +86,31 @@ function ShowCard({ show }) {
       <div className="card-body">
         <div>
           <h3>{name}</h3>
+          <p>{genres?.length > 0 ? genres.join(" / ") : "No Genre Data"}</p>
         </div>
-        <p>
-          {genres?.length > 0 ? genres.join("/") : "No Genre Data"}
-        </p>
-        <p>
-          {network} | {status}
-        </p>
-        <p>{rating}</p>
+        <div>
+          <p>{network}</p>
+          <br />
+          <p>{status}</p>
+          <br />
+          <p>{rating}</p>
+        </div>
 
         {Auth.loggedIn() ? (
-          <select data-value={showSavedIn} value={showSavedIn} onChange={handleSelect}>
+          <select className="card-select" data-value={showSavedIn} value={showSavedIn} onChange={handleSelect}>
             <option disabled value="">Track This Show</option>
             <option value="interested">Interested</option>
             <option value="watching">Watching</option>
             <option value="completed">Completed</option>
             <option value="notInterested">Not Interested</option>
+            {showSavedIn && (
+              <option value="">Untrack</option>
+            )}
           </select>
         ) : (
-          <p>Login to track!</p>
+          <Link to='/login'>
+            Login to track!
+          </Link>
         )}
       </div>
     </div>
