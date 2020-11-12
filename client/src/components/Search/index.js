@@ -29,10 +29,10 @@ function Search({ mode }) {
   }
 
   return (
-    <form className="flex-row search" onSubmit={getShows}>
-      <input id="searchInput" type="text" value={formState} onChange={handleChange} />
-      <button type="submit">Search</button>
-    </form>
+      <form className="search" onSubmit={getShows}>
+        <input type="text" value={formState} placeholder="Search for TV shows by name" onChange={handleChange} />
+        <button type="submit"><img src="/images/search.png" alt="magnifying glass" height="45px" width="45px" /></button>
+      </form>
   );
 }
 
