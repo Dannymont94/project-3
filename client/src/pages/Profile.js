@@ -31,16 +31,27 @@ function Profile() {
                 <label htmlFor="not-interested">Not Interested</label>
             </form>
 
-            <section className="showcard-container">
+            <div className="content-background">
                 {state[profileView]?.length > 0 && (
-                    state[profileView].map((showData, i) => (
-                        <ShowCard key={showData.id} show={showData} />
-                    ))
+                    <section className="showcard-container">
+                        {state[profileView].map((showData, i) => (
+                            <ShowCard key={showData.id} show={showData} />
+                        ))}
+                    </section>
                 )}
-                {state[profileView]?.length === 0 && (
-                    'No shows saved'
+                {state[profileView]?.length === 0 && profileView === 'interested' && (
+                    <h3 className="error-text">You haven't saved any shows you're interested in!</h3>
                 )}
-            </section>
+                {state[profileView]?.length === 0 && profileView === 'watching' && (
+                    <h3 className="error-text">You haven't saved any shows you're currently watching!</h3>
+                )}
+                {state[profileView]?.length === 0 && profileView === 'completed' && (
+                    <h3 className="error-text">You haven't saved any shows you've completed!</h3>
+                )}
+                {state[profileView]?.length === 0 && profileView === 'notInterested' && (
+                    <h3 className="error-text">You haven't saved any shows you're not interested in!</h3>
+                )}
+            </div>
         </div>
     );
 };

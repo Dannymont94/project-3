@@ -20,19 +20,21 @@ function Home() {
     }
 
     return (
-        <div className="home">
+        <>
             <Search mode={'Home'} />
-            <section className="showcard-container">
+            <div className="content-background">
                 {state.searchResults.length > 0 && (
-                    state.searchResults.map((showData, i) => (
-                        <ShowCard key={showData.show.id} show={showData.show} />
-                    ))
-                )}
+                    <section className="showcard-container">
+                        {state.searchResults.map((showData, i) => (
+                            <ShowCard key={showData.show.id} show={showData.show} />
+                        ))}
+                    </section>
+                    )}
                 {state.searchSubmitted && state.searchResults.length === 0 && (
-                    <h3>No shows found</h3>
+                    <h3 className="error-text">No shows found</h3>
                 )}
-            </section>
-        </div>
+            </div>
+        </>
     );
 }
 

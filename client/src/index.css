@@ -99,17 +99,31 @@ header a:hover {
   background: var(--background);
 }
 
+.error-text {
+  margin-top: 25px;
+  color: var(--fourth);
+  text-align: center;
+}
+
+.content-background {
+  background-color: var(--primary);
+  padding-top: 25px;
+  min-height: 100vh;
+}
+
 .showcard-container {
   margin: 0 auto;
   width: 90%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-column-gap: 40px;
   grid-row-gap: 20px;
 }
 
 .card {
-  background-color: var(--secondary);
+  padding: 15px;
+  border-radius: 10px;
+  background-color: var(--light);
   justify-content: center;
   text-align: center;
   overflow: hidden;
@@ -122,12 +136,11 @@ header a:hover {
   height: auto;
   margin-left: auto;
   margin-right: auto;
-  border: solid 5px black;
 }
 
 .card-body {
   background-color: var(--light);
-  border: solid 2px black;
+  border-radius: 10px;
 }
 
 .container-login {
