@@ -7,13 +7,13 @@ function Nav() {
         if (Auth.loggedIn()) {
             return (
                 <div className="container-tabs">
-                    <ul className="flex-row">
-                        <li className="mx-1">
+                    <ul className="">
+                        <li className="">
                             <Link to="/profile">
                                 Profile
                             </Link>
                         </li>
-                        <li className="mx-1">
+                        <li className="">
                             <a href="/" onClick={() => Auth.logout()}>
                                 Logout
                             </a>
@@ -24,13 +24,13 @@ function Nav() {
         } else {
             return (
                 <div className="container-tabs">
-                    <ul className="flex-row nav">
-                        <li className="mx-1">
+                    <ul className="">
+                        <li className="">
                             <Link to="/signup">
                                 Signup
                             </Link>
                         </li>
-                        <li className="mx-1">
+                        <li className="">
                             <Link to="/login">
                                 Login
                             </Link>
@@ -41,7 +41,7 @@ function Nav() {
         }
     }
     return (
-        <header className="flex-row px-1">
+        <header className="">
             <h1>
                 <Link to="/">
                     TV Tracker
