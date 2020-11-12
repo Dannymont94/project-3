@@ -37,47 +37,39 @@ function Signup() {
   };
 
   return (
-    <div className="container-signup flex-row">
-      <div className="column-1">
-        <h2>Signup</h2>
-        <p>
-          Signup today to track your favorite TV shows, find new ones and decide what to watch next.
-        </p>
-      </div>
+    <div className="credentials-form-container">
+      <p className="call-to-action">Signup today to track your favorite TV shows, find new ones, and decide what to watch next!</p>
       <div className="column-2">
-        <form className="Sign-form" onSubmit={handleFormSubmit}>
-          <div className="flex-row space-between my-2">
+        <form onSubmit={handleFormSubmit}>
+          <div>
             <label htmlFor="username">Username:</label>
             <input
-              placeholder="username"
               name="username"
               type="username"
               id="username"
               onChange={handleChange}
             />
           </div>
-          <div className="flex-row space-between my-2">
+          <div>
             <label htmlFor="email">Email:</label>
             <input
-              placeholder="email"
               name="email"
               type="email"
               id="email"
               onChange={handleChange}
             />
           </div>
-          <div className="flex-row space-between my-2">
+          <div>
             <label htmlFor="password">Password:</label>
             <input
-              placeholder="*****"
               name="password"
               type="password"
               id="password"
               onChange={handleChange}
             />
           </div>
-          <div className="flex-row flex-end">
-            <button type="submit">Submit</button>
+          <div>
+            <button type="submit">Sign Up</button>
           </div>
         </form>
       </div>

@@ -37,40 +37,36 @@ function Login() {
   };
 
   return (
-    <div className="container-login">
-      <div className="login-row">
-        <h2>Login</h2>
-        <form onSubmit={handleFormSubmit}>
-          <div className="flex-row space-betweeen">
-            <label htmlFor="email">Email Address:</label>
-            <input
-              placeholder="youremail@test.com"
-              name="email"
-              type="email"
-              id="email"
-              onChange={handleChange}
-            />
-          </div>
+    <div className="credentials-form-container">
+      <p className="call-to-action">Login</p>
+      <form onSubmit={handleFormSubmit}>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
+            name="email"
+            type="email"
+            id="email"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input
+            name="password"
+            type="password"
+            id="password"
+            onChange={handleChange}
+          />
+        </div>
+        {error ? (
           <div>
-            <label htmlFor="password">Password:</label>
-            <input
-              placeholder="******"
-              name="password"
-              type="password"
-              id="password"
-              onChange={handleChange}
-            />
+            <p className="error-text"> What you have provided is incorrect</p>
           </div>
-          {error ? (
-            <div>
-              <p className="error-text"> What you have provided is incorrect</p>
-            </div>
-          ) : null}
-          <div className="flex-row flex-end">
-            <button type="submit">Submit</button>
-          </div>
-        </form>
-      </div>
+        ) : null}
+        <div>
+          <button type="submit">Log In</button>
+        </div>
+      </form>
     </div>
   );
 }
