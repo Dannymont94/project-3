@@ -19,7 +19,10 @@ function Login() {
     event.preventDefault();
     try {
       const mutationResponse = await login({
-        variables: { email: formState.email, password: formState.password },
+        variables: {
+          email: formState.email.toLowerCase(),
+          password: formState.password
+        }
       });
       const token = mutationResponse.data.login.token;
       Auth.login(token);
