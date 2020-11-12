@@ -20,7 +20,7 @@ function Signup() {
     const mutationResponse = await addUser({
       variables: {
         username: formState.username,
-        email: formState.email,
+        email: formState.email.toLowerCase(),
         password: formState.password
       },
     });
