@@ -6,43 +6,39 @@ function Nav() {
     function showNavigation() {
         if (Auth.loggedIn()) {
             return (
-                <div className="container-tabs">
-                    <ul className="">
-                        <li className="">
-                            <Link to="/profile">
-                                Profile
+                <ul>
+                    <li>
+                        <Link to="/profile">
+                            Profile
                             </Link>
-                        </li>
-                        <li className="">
-                            <a href="/" onClick={() => Auth.logout()}>
-                                Logout
+                    </li>
+                    <li>
+                        <a href="/" onClick={() => Auth.logout()}>
+                            Logout
                             </a>
-                        </li>
-                    </ul>
-                </div>
+                    </li>
+                </ul>
             );
         } else {
             return (
-                <div className="container-tabs">
-                    <ul className="">
-                        <li className="">
-                            <Link to="/signup">
-                                Signup
+                <ul>
+                    <li>
+                        <Link to="/signup">
+                            Signup
                             </Link>
-                        </li>
-                        <li className="">
-                            <Link to="/login">
-                                Login
+                    </li>
+                    <li>
+                        <Link to="/login">
+                            Login
                             </Link>
-                        </li>
-                    </ul>
-                </div>
+                    </li>
+                </ul>
             )
         }
     }
     return (
-        <header className="">
-            <h1>
+        <header>
+            <h1 className="title">
                 <Link to="/">
                     TV Tracker
                 </Link>

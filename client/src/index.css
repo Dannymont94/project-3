@@ -8,81 +8,61 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/*
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
 
 :root {
-  --primary: #0D3B66;
-  --secondary:#FAF0CA ;
+  --primary: #002C3F;
+  --secondary:#FAF0CA;
   --tertiary:#F95738 ;
   --fourth: #EE964B;
   --light: #fafafa;
-  --dark: #000000;
-  --darker: #111111;
+  --background: #147ba7;
 }
 
 html,
 body {
   min-height: 100%;
-  background-color: var(--secondary);
+  /* background-color: var(--primary); */
 }
 
 header {
+  padding: 20px 50px;
   background-color: var(--primary);
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 88px;
-  padding-bottom: 5px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  
-}
-.container-tabs {
-  display: flex;
-  
-
-}
-.nav{
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
-  padding-top: 4px;
-  width: 100%;
-  color: var(--light);
+  flex-flow: row wrap;
+  align-items: center;
 }
 
- ul {
+.title a {
+  font-size: 48px;
+  font-weight: normal;
+  padding: 0;
+}
+
+header nav ul {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: space-between;
-  flex-direction: row;
-}
-
-li {
+  align-items: center;
   list-style: none;
-  margin: 10px;
-  font-size: 16px;
-  padding-right: 10px;
 }
 
-h1 {
-  padding-top: 10px;
-}
-.search{
-  display: inline-block;
-  justify-content: center;
- 
-}
-
-a{
+header a {
   color: var(--light);
   text-decoration: none;
+  padding: 5px 15px;
+  font-size: 30px;
+  font-weight: normal;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.search{
+  display: inline-block;
+  justify-content: center; 
 }
 
 .grid-container {
@@ -92,7 +72,6 @@ a{
   grid-column-gap: 40px;
   grid-row-gap: 20px;
   overflow-wrap: normal;
-  
 }
 
 .card {
@@ -102,7 +81,6 @@ a{
   overflow: hidden;
 }
 
-
 .card-img {
   display: block;
   max-width: 100%;
@@ -111,7 +89,6 @@ a{
   margin-left: auto;
   margin-right: auto;
   border: solid 5px black;
-  
 }
 
 .card-body {
@@ -128,7 +105,6 @@ a{
 }
 .container-login h2{
   margin-bottom: 5px;
-
 }
 
 .container-signup {
@@ -140,6 +116,7 @@ a{
   padding: 20px;
   justify-content: space-evenly;
 }
+
 .column-1 {
  border: 1px solid black;
  display: block;
@@ -157,7 +134,6 @@ a{
 
 .column-1 p {
   padding: 10px 0;
-
 }
 
 .column-2 {
@@ -190,14 +166,16 @@ input {
 
 button {
   border: 1px solid black;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 8px;
-    margin-bottom: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  margin-bottom: 5px;
 }
+
 form button:hover {
   background-color: var(--fourth);
 }
+
 .home {
   padding-left: 40px;
 }

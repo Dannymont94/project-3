@@ -21,7 +21,7 @@ function Home() {
 
     return (
         <div className="home">
-            <h1>Home Page</h1>
+            <h2>Home Page</h2>
             <Search mode={'Home'} />
             <section className="grid-container">
                 {state.searchResults.length > 0 && (
