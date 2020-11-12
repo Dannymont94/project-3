@@ -10,12 +10,12 @@ function Nav() {
                     <li>
                         <Link to="/profile">
                             Profile
-                            </Link>
+                        </Link>
                     </li>
                     <li>
                         <a href="/" onClick={() => Auth.logout()}>
                             Logout
-                            </a>
+                        </a>
                     </li>
                 </ul>
             );
@@ -25,12 +25,12 @@ function Nav() {
                     <li>
                         <Link to="/signup">
                             Signup
-                            </Link>
+                        </Link>
                     </li>
                     <li>
                         <Link to="/login">
                             Login
-                            </Link>
+                        </Link>
                     </li>
                 </ul>
             )

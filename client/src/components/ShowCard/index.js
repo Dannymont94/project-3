@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { useMutation } from "@apollo/react-hooks";
 import { UPDATE_SHOWS } from "../../utils/mutations";
@@ -107,7 +108,9 @@ function ShowCard({ show }) {
             )}
           </select>
         ) : (
-          <p>Login to track!</p>
+          <Link to='/login'>
+            Login to track!
+          </Link>
         )}
       </div>
     </div>

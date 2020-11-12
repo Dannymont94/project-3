@@ -157,6 +157,10 @@ header a:hover {
   border-radius: 10px;
 }
 
+.card-body a {
+  color: var(--background);
+}
+
 .card-select {
   font-size: 16px;
 }
