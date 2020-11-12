@@ -17,19 +17,29 @@ function Profile() {
 
     return (
         <div>
-            <form onChange={radioButtonHandler}>
-                <input type="radio" id="interested" name="view" value="interested" />
-                <label htmlFor="interested">Interested</label>
-                <br />
-                <input type="radio" id="watching" name="view" value="watching" />
-                <label htmlFor="watching">Watching</label>
-                <br />
-                <input type="radio" id="completed" name="view" value="completed" />
-                <label htmlFor="completed">Completed</label>
-                <br />
-                <input type="radio" id="not-interested" name="view" value="notInterested" />
-                <label htmlFor="not-interested">Not Interested</label>
-            </form>
+            <div className="radio-form-container">
+                <form className="radio-form" onChange={radioButtonHandler}>
+                    <div>
+                        <input type="radio" id="interested" name="view" value="interested" />
+                        <label htmlFor="interested"> Interested </label>
+                    </div>
+                    |
+                    <div>
+                        <input type="radio" id="watching" name="view" value="watching" />
+                        <label htmlFor="watching"> Watching </label>
+                    </div>
+                    |
+                    <div>
+                        <input type="radio" id="completed" name="view" value="completed" />
+                        <label htmlFor="completed"> Completed </label>
+                    </div>
+                    |
+                    <div>
+                        <input type="radio" id="not-interested" name="view" value="notInterested" />
+                        <label htmlFor="not-interested"> Not Interested </label>
+                    </div>
+                </form>
+            </div>
 
             <div className="content-background">
                 {state[profileView]?.length > 0 && (

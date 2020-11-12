@@ -66,7 +66,8 @@ header a:hover {
   color: var(--background);
 }
 
-.search-container {
+.search-container,
+.radio-form-container {
   background-color: var(--light);
   padding: 35px 0;
 }
@@ -165,7 +166,38 @@ header a:hover {
   font-size: 16px;
 }
 
-.container-login {
+.radio-form {
+  text-align: center;
+  font-size: 30px;
+  margin: 10px 0 10px;
+}
+
+.radio-form div,
+.radio-form div input,
+.radio-form div label {
+  display: inline;
+  padding-bottom: 5px;
+}
+
+.radio-form div label {
+  color: var(--primary);
+  font-size: 30px;
+}
+
+.radio-form div label:hover {
+  border-bottom: 3px solid var(--fourth);
+}
+
+.radio-form div input {
+  display: none;
+}
+
+.radio-form input:checked ~ label {
+  color: var(--background);
+  border-bottom: 3px solid var(--fourth);
+}
+
+/* .container-login {
   flex-direction: column;
   margin: 50px 200px;
   border: 1px solid black;
@@ -223,4 +255,4 @@ header a:hover {
   margin: 3.5%;
   box-shadow: 0 0 10px rgba(0, 0 0, 0.5);
   border-radius: 15px;
-}
+} */
