@@ -59,7 +59,9 @@ function ShowCard({ show }) {
 
   const id = show.id;
   const name = show.name;
-  const image = show.image ? show.image.medium : 'https://via.placeholder.com/210x295.png?text=TV+Tracker';
+  const image = show.image?.medium ? show.image.medium :
+                show.image ? show.image        :
+                'https://via.placeholder.com/210x295.png?text=TV+Tracker';
   const genres = show.genres || [];
   const network = show.network ? show.network.name :
                   show.webChannel? show.webChannel.name :
