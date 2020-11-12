@@ -2,7 +2,7 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type Show {
-    tvMazeId: Int
+    id: Int
     name: String
     summary: String
     image: String
@@ -32,7 +32,7 @@ const typeDefs = gql`
   }
 
   input ShowInput {
-    tvMazeId: Int
+    id: Int
     name: String
     summary: String
     image: String

@@ -6,6 +6,7 @@ import {
 
 const initialState = {
   searchSubmitted: false,
+  dataQueried: false,
   searchResults: [],
   interested: [],
   watching: [],
@@ -42,6 +43,7 @@ export const reducer = (state = initialState, action) => {
     case STORE_USER_DATA:
       return {
         ...state,
+        dataQueried: true,
         interested: [...action.payload.interested],
         watching: [...action.payload.watching],
         completed: [...action.payload.completed],

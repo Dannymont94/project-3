@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const showSchema = new Schema({
-  tvMazeId: {
+  id: {
     type: Number,
     required: true,
   },

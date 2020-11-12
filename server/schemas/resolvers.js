@@ -54,7 +54,7 @@ const resolvers = {
           // just removing from oldCategory
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $pull: { [oldCategory]: { tvMazeId: show.tvMazeId } } },
+            { $pull: { [oldCategory]: { id: show.id } } },
             { new: true, runValidators: true }
           );
 
@@ -64,7 +64,7 @@ const resolvers = {
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },
             { 
-              $pull: { [oldCategory]: { tvMazeId: show.tvMazeId } },
+              $pull: { [oldCategory]: { id: show.id } },
               $addToSet: { [newCategory]: show },
             },
             { new: true, runValidators: true }
