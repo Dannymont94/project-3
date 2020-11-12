@@ -6,7 +6,7 @@ export const QUERY_USER = gql`
       username
       interestedCount
       interested {
-        tvMazeId
+        id
         name
         summary
         image
@@ -17,7 +17,7 @@ export const QUERY_USER = gql`
       }
       watchingCount
       watching {
-        tvMazeId
+        id
         name
         summary
         image
@@ -28,7 +28,7 @@ export const QUERY_USER = gql`
       }
       completedCount
       completed {
-        tvMazeId
+        id
         name
         summary
         image
@@ -39,7 +39,7 @@ export const QUERY_USER = gql`
       }
       notInterestedCount
       notInterested {
-        tvMazeId
+        id
         name
         summary
         image

@@ -44,7 +44,7 @@ function ShowCard({ show }) {
         newCategory,
         oldCategory,
         show: {
-          tvMazeId,
+          id,
           name,
           image,
           genres,
@@ -57,7 +57,7 @@ function ShowCard({ show }) {
     });
   }
 
-  const tvMazeId = show.id;
+  const id = show.id;
   const name = show.name;
   const image = show.image ? show.image.medium : 'https://via.placeholder.com/210x295.png?text=TV+Tracker';
   const genres = show.genres || [];

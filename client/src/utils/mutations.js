@@ -28,7 +28,7 @@ export const UPDATE_SHOWS = gql`
       username
       interestedCount
       interested {
-        tvMazeId
+        id
         name
         summary
         image
@@ -39,7 +39,7 @@ export const UPDATE_SHOWS = gql`
       }
       watchingCount
       watching {
-        tvMazeId
+        id
         name
         summary
         image
@@ -50,7 +50,7 @@ export const UPDATE_SHOWS = gql`
       }
       completedCount
       completed {
-        tvMazeId
+        id
         name
         summary
         image
