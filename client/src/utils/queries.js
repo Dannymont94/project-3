@@ -14,6 +14,7 @@ export const QUERY_USER = gql`
         network
         status
         rating
+        url
       }
       watchingCount
       watching {
@@ -25,6 +26,7 @@ export const QUERY_USER = gql`
         network
         status
         rating
+        url
       }
       completedCount
       completed {
@@ -36,6 +38,7 @@ export const QUERY_USER = gql`
         network
         status
         rating
+        url
       }
       notInterestedCount
       notInterested {
@@ -47,6 +50,7 @@ export const QUERY_USER = gql`
         network
         status
         rating
+        url
       }
     }
   }

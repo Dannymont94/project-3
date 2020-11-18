@@ -30,34 +30,21 @@ export const UPDATE_SHOWS = gql`
       interested {
         id
         name
-        summary
-        image
-        genres
-        network
-        status
-        rating
       }
       watchingCount
       watching {
         id
         name
-        summary
-        image
-        genres
-        network
-        status
-        rating
       }
       completedCount
       completed {
         id
         name
-        summary
-        image
-        genres
-        network
-        status
-        rating
+      }
+      notInterestedCount
+      notInterested {
+        id
+        name
       }
     }
   }

@@ -10,6 +10,7 @@ const typeDefs = gql`
     network: String
     status: String
     rating: String
+    url: String
   }
 
   type User {
@@ -40,6 +41,7 @@ const typeDefs = gql`
     network: String
     status: String
     rating: String
+    url: String
   }
 
   type Query {
