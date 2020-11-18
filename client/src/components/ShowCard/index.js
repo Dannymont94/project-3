@@ -52,7 +52,8 @@ function ShowCard({ show }) {
           network,
           status,
           rating,
-          summary
+          summary,
+          url
         }
       }
     });
@@ -75,14 +76,17 @@ function ShowCard({ show }) {
                     .trim()
                     :
                     'No summary data';
+  const url = show.url;
 
   return (
     <div className="card">
-      <img
-        className="card-img"
-        src={image}
-        alt={`${name} promotional art`}
-      />
+      <a href={url}>
+        <img
+          className="card-img"
+          src={image}
+          alt={`${name} promotional art`}
+        />
+      </a>
       <div className="card-body">
         <div>
           <h3>{name}</h3>

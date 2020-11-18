@@ -28,6 +28,9 @@ const showSchema = new Schema({
   },
   rating: {
     type: String
+  },
+  url: {
+    type: String
   }
 });
 
