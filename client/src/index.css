@@ -123,7 +123,7 @@ header a:hover {
   margin: 0 auto;
   width: 90%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   grid-column-gap: 40px;
   grid-row-gap: 40px;
 }
@@ -141,9 +141,8 @@ header a:hover {
 
 .card-img {
   display: block;
-  max-width: 100%;
-  width: auto;
-  height: auto;
+  width: 210px;
+  height: 295px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -255,6 +254,91 @@ header a:hover {
   text-align: center;
 }
 
+/* Hover Animation */
+.img-link-container {
+  padding: 0;
+}
+
+.img-link-container::after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
+.img-link-container div {
+  position: relative;
+  float: left;
+  width: 210px;
+  height: 295px;
+  margin: 0 0 0 25px;
+  padding: 0;
+}
+
+.img-link-container div:first-child {
+  margin-left: 0;
+}
+
+.img-link-container div span {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  z-index: -1;
+  display: block;
+  width: 300px;
+  margin: 0;
+  padding: 0;
+  color: #444;
+  font-size: 18px;
+  text-decoration: none;
+  text-align: center;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+  opacity: 0;
+}
+
+figure {
+  width: 210px;
+  height: 295px;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  overflow: hidden;
+}
+
+figure:hover+span {
+  bottom: -36px;
+  opacity: 1;
+}
+
+.shine-hover figure {
+  position: relative;
+}
+
+.shine-hover figure::before {
+  position: absolute;
+  top: 0;
+  left: -83%;
+  z-index: 2;
+  display: block;
+  content: '';
+  width: 50%;
+  height: 100%;
+  background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+  -webkit-transform: skewX(-25deg);
+  transform: skewX(-25deg);
+}
+
+.shine-hover figure:hover::before {
+  animation: shine .75s;
+}
+
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
 @media screen and (max-width: 750px) {
   .radio-form-container {
     padding: 15px 0;
@@ -298,11 +382,14 @@ header a:hover {
   }
   
   .search {
-    width: 100%;
+    width: 95%;
   }
-
+  
   .search input {
-    padding-left: 0;
+    padding: 0;
+    padding-left: 5px;
+    font-size: 20px;
+    text-align: center;
   }
 
   .showcard-container {
@@ -311,6 +398,10 @@ header a:hover {
   
   .card {
     flex-flow: column nowrap;
+  }
+
+  .card-body h3 {
+    margin-top: 10px;
   }
 
   .card-body div p {

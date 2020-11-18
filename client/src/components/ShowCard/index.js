@@ -80,13 +80,17 @@ function ShowCard({ show }) {
 
   return (
     <div className="card">
-      <a href={url}>
-        <img
-          className="card-img"
-          src={image}
-          alt={`${name} promotional art`}
-        />
-      </a>
+      <div className="img-link-container shine-hover">
+        <a href={url}>
+          <figure>
+            <img
+              className="card-img"
+              src={image}
+              alt={`${name} promotional art`}
+            />
+          </figure>
+        </a>
+      </div>
       <div className="card-body">
         <div>
           <h3>{name}</h3>
