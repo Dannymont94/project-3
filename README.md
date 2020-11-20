@@ -1,5 +1,7 @@
 # TV Tracker
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## Description 
 From "Tiger King" to "Ozark" to "The Boys," it seems like a new TV show is trending every week of quarantine. TV Tracker is a MERN-Stack single-page application that allows users to track their all their TV shows in one place.
 
