@@ -1,45 +1,50 @@
-# Tv Tracker
+# TV Tracker
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description 
-You have probably heard it, “Have you seen that new show about ..”, and you either have the reaction of, oh yeah I love it or looking at someone blankly.  With so many tv shows out there, how do you keep track of it all?  
+From "Tiger King" to "Ozark" to "The Boys," it seems like a new TV show is trending every week of quarantine. TV Tracker is a MERN-Stack single-page application that allows users to track their all their TV shows in one place.
 
-Well now you have that opportunity with Tv Tracker.  Tv Tracker allows you to search for tv shows and indicate if your interest level in various tv shows.  Once you start watching you can track that you have started and when you finish your binge, you can mark it as complete.  
+Use the search bar to find TV shows and track them as "Interested," "Watching," "Completed," or "Not Interested." You can also untrack a show at any time. Click on a poster to see more information from TVMaze.com. 
 
-So the next time you get the question, you can open Tv Tracker and checkout if you are interested in the show.  Or you are scrolling through one of the various streaming platforms, not knowing what to watch, you’ll have Tv Tracker to aid you.
-
+View and all your tracked shows from your profile page. The days of forgetting your friends' TV show recommendations are numbered!
 
 ## Table of Contents
-- [Deployed](#Deployed)
-- [Images](#Images)
-- [Future Development](#Future-Development)
-- [Contributing](#Contributing)
-- [Credits](#Credits)
+- [Deployment](#deployment)
+- [Screenshots](#screenshots)
+- [Future Development](#future-development)
+- [Contributing](#contributing)
+- [License](#license)
+- [Credits](#credits)
+- [Questions](#questions)
 
+## Deployment
+Visit our [deployed app here](https://stark-brushlands-99590.herokuapp.com/).
 
-## Deployed
-Vist the deployed app [here](https://stark-brushlands-99590.herokuapp.com/)
-
-
-## Images
+## Screenshots
 ### Home
 ![Home](https://user-images.githubusercontent.com/62314714/99005620-2165f800-250f-11eb-8774-03618633018d.png)
 
-
 ### Search
 ![Search](https://user-images.githubusercontent.com/62314714/99005708-43f81100-250f-11eb-8dec-430b3d4bc97b.png)
-
 
 ### Profile
 ![Profile](https://user-images.githubusercontent.com/62314714/99005681-35115e80-250f-11eb-9bb0-f572e15eee81.png)
 
 ## Future Development
-- Make cards more interactive to include a description of the show
+- Create trending section/page for users to find new shows without having to know the name beforehand
 - Allow user to interact with other users
 
 ## Contributing
 Please make pull requests!
 
+## License
+TV Tracker is licensed under the MIT license.
+
 ## Credits
 Created by [Daniel Monterrosa](https://github.com/Dannymont94) and [Josh Hall](https://github.com/jahallb1).
 
-Using [MongoDB](https://www.mongodb.com/), [React](https://reactjs.org/), [GraphQL](https://graphql.org/), PWA.
+Using [MongoDB](https://www.mongodb.com/), [React](https://reactjs.org/), [GraphQL](https://graphql.org/).
+
+## Questions
+Reach out to us on GitHub with any questions!
