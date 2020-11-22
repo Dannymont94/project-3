@@ -299,7 +299,7 @@ header a:hover {
 figure {
   width: 210px;
   height: 295px;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   background: #fff;
   overflow: hidden;
