@@ -81,7 +81,7 @@ function ShowCard({ show }) {
   return (
     <div className="card">
       <div className="img-link-container shine-hover">
-        <a href={url}>
+        <a href={url} target="_blank">
           <figure>
             <img
               className="card-img"
