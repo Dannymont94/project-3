@@ -23,6 +23,11 @@ body {
   background-color: var(--primary);
 }
 
+.not-found {
+  color: var(--fourth);
+  text-align: center;
+}
+
 header {
   width: 90%;
   margin: 0 auto;

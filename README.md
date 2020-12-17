@@ -7,7 +7,7 @@ From "Tiger King" to "Ozark" to "The Boys," it seems like a new TV show is trend
 
 Use the search bar to find TV shows and track them as "Interested," "Watching," "Completed," or "Not Interested." You can also untrack a show at any time. Click on a poster to see more information from TVMaze.com. 
 
-View and all your tracked shows from your profile page. The days of forgetting your friends' TV show recommendations are numbered!
+View all your tracked shows from your profile page. The days of forgetting your friends' TV show recommendations are numbered!
 
 ## Table of Contents
 - [Deployment](#deployment)
